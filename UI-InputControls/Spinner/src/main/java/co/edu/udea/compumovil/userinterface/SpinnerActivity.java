@@ -43,7 +43,7 @@ public class SpinnerActivity extends AppCompatActivity implements AdapterView.On
         // item
         Toast.makeText(
                 parent.getContext(),
-                "El color seleccionado es: "
+                "La fruta seleccionada es: "
                         + parent.getItemAtPosition(pos).toString(),
                 Toast.LENGTH_SHORT).show();
 
