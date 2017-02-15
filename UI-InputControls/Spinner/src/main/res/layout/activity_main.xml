@@ -15,7 +15,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="20dp"
         android:layout_marginTop="10dip"
-        android:text="Seleccione un color:"
+        android:text="Seleccione una fruta:"
         android:textSize="24sp" />
 
     <Spinner
