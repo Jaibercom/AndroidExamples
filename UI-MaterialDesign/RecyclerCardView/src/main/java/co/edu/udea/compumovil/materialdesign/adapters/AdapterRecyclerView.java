@@ -16,7 +16,7 @@ import co.edu.udea.compumovil.materialdesign.R;
 import co.edu.udea.compumovil.materialdesign.model.Person;
 
 /**
- * Created by joluditru on 11/08/2016.
+ * Created by jaiber on 11/08/2016.
  */
 public class AdapterRecyclerView extends RecyclerView.Adapter<AdapterRecyclerView.PersonViewHolder>{
 
