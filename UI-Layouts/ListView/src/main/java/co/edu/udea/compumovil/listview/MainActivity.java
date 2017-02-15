@@ -57,7 +57,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         // Display a Toast message indicting the selected item
         Toast.makeText(this, ((TextView) view).getText(), Toast.LENGTH_SHORT).show();
 
-        Log.v("MainActivity", "text: " + ((TextView) view).getText());
+        Log.d("MainActivity", "text: " + ((TextView) view).getText());
 
     }
 

@@ -37,4 +37,11 @@
         android:layout_below="@id/times"
         android:text="@string/done" />
 
+            <Button
+                android:id="@+id/button_send"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/button_send"
+                android:onClick="sendMessage" />
+
 </RelativeLayout>

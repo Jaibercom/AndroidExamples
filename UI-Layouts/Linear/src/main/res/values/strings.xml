@@ -1,11 +1,10 @@
 <resources>
     <string name="app_name">Linear Layout</string>
 
-    <string name="to">to</string>
-    <string name="subject">subject</string>
-    <string name="message">message</string>
-    <string name="send">send</string>
-
+    <string name="to">To</string>
+    <string name="subject">Subject</string>
+    <string name="message">Message</string>
+    <string name="send">Send</string>
 
     <string name="red_string">red</string>
     <string name="green_string">green</string>
