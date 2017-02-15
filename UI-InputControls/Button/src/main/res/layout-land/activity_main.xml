@@ -10,31 +10,32 @@
     tools:context="co.edu.udea.compumovil.button.MainActivity">
 
     <TextView
+        android:id="@+id/text_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/text_view"
-        android:textSize="35sp"
-        android:text="" />
+        android:text=""
+        android:textSize="35sp" />
 
     <Button
+        android:id="@+id/count_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/count_button_text"
-        android:id="@+id/count_button"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_marginBottom="85dp"
-        android:onClick="onClick"/>
+        android:drawableLeft="@android:drawable/ic_input_add"
+        android:onClick="onClick"
+        android:text="@string/count_button_text" />
 
     <Button
+        android:id="@+id/clear_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/clear_button_text"
-        android:id="@+id/clear_button"
-        android:layout_alignTop="@+id/count_button"
-        android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignTop="@+id/count_button"
         android:drawableLeft="@android:drawable/ic_menu_close_clear_cancel"
-        android:onClick="onClick"/>
+        android:onClick="onClick"
+        android:text="@string/clear_button_text" />
 </RelativeLayout>

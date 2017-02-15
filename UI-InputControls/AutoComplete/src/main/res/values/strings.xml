@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">AutoComplete</string>
-    <string name="country_string">Country</string>
+    <string name="country_string">Country:</string>
     <string name="enter_country_string">Enter your Country here</string>
 
     <string-array name="countries_array">

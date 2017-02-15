@@ -8,7 +8,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 import android.widget.Toast;
 
-public class SpinnerActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener{
+public class SpinnerActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,15 +45,13 @@ public class SpinnerActivity extends AppCompatActivity implements AdapterView.On
                 parent.getContext(),
                 "El color seleccionado es: "
                         + parent.getItemAtPosition(pos).toString(),
-                Toast.LENGTH_LONG).show();
+                Toast.LENGTH_SHORT).show();
 
     }
 
     public void onNothingSelected(AdapterView<?> parent) {
         // Another interface callback
     }
-
-
 
 
 }

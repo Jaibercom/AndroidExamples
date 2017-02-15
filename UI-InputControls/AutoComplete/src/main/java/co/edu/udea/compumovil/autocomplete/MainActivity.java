@@ -13,14 +13,14 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         // Get a reference to the AutoCompleteTextView
-        AutoCompleteTextView textView = (AutoCompleteTextView) findViewById(R.id.autocomplete_country);
+        AutoCompleteTextView autoCompleteTextView = (AutoCompleteTextView) findViewById(R.id.autocomplete_country);
 
         // Get the string array
         String[] countries = getResources().getStringArray(R.array.countries_array);
 
         // Create the adapter and set it to the AutoCompleteTextView
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, countries);
-        textView.setAdapter(adapter);
+        autoCompleteTextView.setAdapter(adapter);
 
 
     }
