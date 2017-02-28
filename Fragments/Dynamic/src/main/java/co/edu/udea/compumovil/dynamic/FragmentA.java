@@ -27,6 +27,7 @@ public class FragmentA extends Fragment {
         Log.d(TAG, "onCreate");
     }
 
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -34,6 +35,13 @@ public class FragmentA extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_a, container, false);
         return view;
+    }
+
+
+    @Override
+    public void onStop() {
+        super.onPause();
+        Log.d(TAG, "onStop");
     }
 
     @Override

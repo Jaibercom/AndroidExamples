@@ -34,6 +34,12 @@ public class FragmentB extends Fragment {
     }
 
     @Override
+    public void onStop() {
+        super.onPause();
+        Log.d(TAG, "onStop");
+    }
+
+    @Override
     public void onDestroy() {
         super.onDestroy();
         Log.d(TAG, "onDestroy");
