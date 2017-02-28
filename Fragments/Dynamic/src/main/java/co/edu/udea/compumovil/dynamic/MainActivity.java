@@ -38,14 +38,13 @@ public class MainActivity extends AppCompatActivity {
         // Capture the fragment from the activity layout
         FragmentA fragment = (FragmentA) getSupportFragmentManager().findFragmentByTag("TAG_A");
 
-
         // Replace whatever is in the fragment_container view with this fragment,
         // and add the transaction to the back stack
         if (fragment != null) {
-            Log.d(TAG, "es el Fragment A");
+            Log.d(TAG, "Mostrar el Fragment B");
             transaction.replace(R.id.fragment_container, fragmentB, "TAG_B");
         } else {
-            Log.d(TAG, "es el Fragment B");
+            Log.d(TAG, "Mostrar el Fragment A");
             transaction.replace(R.id.fragment_container, fragmentA, "TAG_A");
         }
         //transaction.addToBackStack(null);         //Para que sirve ??
