@@ -31,8 +31,6 @@ public class MainActivity extends AppCompatActivity {
 
         Log.d(TAG, "onClick");
 
-        // Replace whatever is in the fragment_container view with this fragment,
-        // and add the transaction to the back stack
         if (isFragmentA == true) {
             displayFragmentB();
             isFragmentA = false;
@@ -40,7 +38,6 @@ public class MainActivity extends AppCompatActivity {
             displayFragmentA();
             isFragmentA = true;
         }
-
     }
 
     // Replace the switch method
