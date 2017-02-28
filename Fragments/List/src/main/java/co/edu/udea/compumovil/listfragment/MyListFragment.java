@@ -25,12 +25,12 @@ public class MyListFragment extends ListFragment implements AdapterView.OnItemCl
         // Required empty public constructor
     }
 
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_my_list, container, false);
+        View view = inflater.inflate(R.layout.fragment_my_list, container, false);
+        return view;
     }
 
     @Override
@@ -48,7 +48,6 @@ public class MyListFragment extends ListFragment implements AdapterView.OnItemCl
         //Create adapter with array-string form a normal array
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(),
                 android.R.layout.simple_list_item_1, android.R.id.text1, planetsList);
-
 
         //Set adapter
         setListAdapter(adapter);
