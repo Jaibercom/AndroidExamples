@@ -8,7 +8,6 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
-
 /**
  * A simple {@link Fragment} subclass.
  */
@@ -33,7 +32,6 @@ public class FragmentA extends Fragment implements View.OnClickListener{
         countButton = (Button) view.findViewById(R.id.count_button);
         clearButton.setOnClickListener(this);
         countButton.setOnClickListener(this);
-
 
         textView = (TextView) view.findViewById(R.id.text_view);
         updateUI();
@@ -61,7 +59,5 @@ public class FragmentA extends Fragment implements View.OnClickListener{
     private void updateUI(){
         textView.setText(this.getString(R.string.text_view_msg) +" "+ count);
     }
-
-
 
 }
