@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">ControlButton</string>
+
+    <string name="text_view_msg">Se ha presionado: </string>
+    <string name="clear_button_text">Borrar</string>
+    <string name="count_button_text">Presiona !!</string>
+</resources>
