@@ -33,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
         switch (position) {
             case 0:         //Open Browser
                 intent = new Intent(Intent.ACTION_VIEW,
-                        Uri.parse("https://sites.google.com/site/udeacomputacionmovil15/clases"));
+                        Uri.parse("https://sites.google.com/view/jaiberyepes/mobile-computing"));
                 break;
             case 1:         //Call Someone
                 intent = new Intent(Intent.ACTION_CALL,

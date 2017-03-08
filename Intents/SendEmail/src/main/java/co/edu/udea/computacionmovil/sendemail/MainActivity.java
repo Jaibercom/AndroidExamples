@@ -7,7 +7,6 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.Window;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -15,10 +14,10 @@ import java.lang.reflect.Method;
 
 public class MainActivity extends AppCompatActivity {
 
-    final String TAG = "MainActivity";
-    EditText edtTo;
-    EditText edtSubject;
-    EditText edtComposeEmail;
+    private final String TAG = "MainActivity";
+    private EditText edtTo;
+    private EditText edtSubject;
+    private EditText edtComposeEmail;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,8 +33,7 @@ public class MainActivity extends AppCompatActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_main, menu);
 
-        menu.findItem(R.id.action_send).setVisible(true);
-
+        //Para mostrar el icono dentro del menu
         if(menu.getClass().getSimpleName().equals("MenuBuilder")){
             try{
                 Method m = menu.getClass().getDeclaredMethod(
@@ -51,9 +49,9 @@ public class MainActivity extends AppCompatActivity {
             }
         }
 
-
         return true;
     }
+
 
 
     @Override
@@ -62,7 +60,7 @@ public class MainActivity extends AppCompatActivity {
         if (id == R.id.action_send) {
 
             composeEmail();
-            item.setVisible(true);
+
         }
         if (id == R.id.menu_exit) {
 
@@ -85,10 +83,10 @@ public class MainActivity extends AppCompatActivity {
         // Verify the original intent will resolve to at least one activity
         if (intent.resolveActivity(getPackageManager()) != null) {
             startActivity(intent);
-        }
-        else{
+        } else {
             Log.d(TAG, "No activity was found that matched with the intent-filter");
             Toast.makeText(this, "No activity was found that matched with the intent-filter", Toast.LENGTH_SHORT).show();
         }
+
     }
 }
