@@ -11,7 +11,7 @@ import android.widget.ListView;
 
 
 public class HeadlinesFragment extends ListFragment {
-    OnHeadlineSelectedListener mCallback;
+    private OnHeadlineSelectedListener mCallback;
 
     // The container Activity must implement this interface so the frag can deliver messages
     public interface OnHeadlineSelectedListener {
