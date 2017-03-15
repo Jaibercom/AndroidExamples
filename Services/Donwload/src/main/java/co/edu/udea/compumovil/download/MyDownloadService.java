@@ -68,14 +68,13 @@ public class MyDownloadService extends Service {
     private int DownloadFile(URL url) {
         try {
             // Simulamos la descarga de un fichero
-            Thread.sleep(2000);
+            Thread.sleep(2500);
         } catch (InterruptedException ex) {
             ex.printStackTrace();
         }
 
         return 100;
     }
-
 
 
     //Clase de Android para hacer tareas en background
@@ -113,7 +112,7 @@ public class MyDownloadService extends Service {
         @Override
         protected void onPostExecute(Long result) {
             super.onPostExecute(result);
-            Log.d(TAG, "Descargado"+ result + " KBytes");
+            Log.d(TAG, "Descargado "+ result + " KBytes");
             Toast.makeText(getBaseContext(),
                     "Descargado " + result + " KBytes", Toast.LENGTH_SHORT)
                     .show();
