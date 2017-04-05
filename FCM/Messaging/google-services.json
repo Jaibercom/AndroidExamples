@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "771583446800",
+    "firebase_url": "https://messaging20171.firebaseio.com",
+    "project_id": "messaging20171",
+    "storage_bucket": "messaging20171.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:771583446800:android:d092f710a81c36c3",
+        "android_client_info": {
+          "package_name": "co.edu.udea.compumovil.fcm"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "771583446800-7cd7sqd35fkobhaaokcm1v753dq92jh3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBAL-5kU5XLUhtZhIoUiSocyGbIhDK0Br4"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
