@@ -23,8 +23,8 @@ import com.google.firebase.auth.FirebaseUser;
 public class MainActivity extends AppCompatActivity implements GoogleApiClient.OnConnectionFailedListener, FirebaseAuth.AuthStateListener {
 
     private String TAG = "MainActivity";
-    private TextView mStatusTextView;
-    private TextView mDetailTextView;
+    private TextView mUsernameTextView;
+    private TextView mEmailTextView;
 
     private FirebaseAuth mAuth;
     private GoogleApiClient mGoogleApiClient;
@@ -37,8 +37,8 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
         setContentView(R.layout.activity_main);
 
         // Views
-        mStatusTextView = (TextView) findViewById(R.id.status);
-        mDetailTextView = (TextView) findViewById(R.id.detail);
+        mUsernameTextView = (TextView) findViewById(R.id.field_user_name);
+        mEmailTextView = (TextView) findViewById(R.id.field_email);
 
         initGoogleAccount();
 
@@ -111,7 +111,10 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
         if (currentUser != null) {
             // User is signed in
             Log.d(TAG, "onAuthStateChanged:signed_in:" + currentUser.getUid());
-            mStatusTextView.setText(currentUser.getEmail());
+            Log.d(TAG, "onAuthStateChanged:PhotoUrl:" + currentUser.getPhotoUrl());
+            mUsernameTextView.setText(currentUser.getDisplayName());
+            mEmailTextView.setText(currentUser.getEmail());
+
         } else {
             // User is signed out
             Log.d(TAG, "onAuthStateChanged:signed_out");

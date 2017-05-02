@@ -1,9 +1,6 @@
-<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:id="@+id/root_view"
-    android:background="@android:color/white"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    android:layout_height="match_parent">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -35,8 +32,28 @@
                 android:layout_weight="6"
                 android:gravity="center"
                 android:orientation="vertical"
+                android:paddingBottom="@dimen/activity_vertical_margin"
                 android:paddingLeft="64dp"
-                android:paddingRight="64dp">
+                android:paddingRight="64dp"
+                android:paddingTop="32dp">
+
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <EditText
+                        android:id="@+id/field_user_name"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:drawableLeft="@drawable/ic_person_black_24dp"
+                        android:gravity="center"
+                        android:hint="@string/prompt_user_name"
+                        android:imeOptions="actionNext"
+                        android:inputType="textPersonName"
+                        android:maxLines="1" />
+
+                </android.support.design.widget.TextInputLayout>
+
 
                 <android.support.design.widget.TextInputLayout
                     android:layout_width="match_parent"
@@ -73,47 +90,21 @@
                 </android.support.design.widget.TextInputLayout>
 
                 <Button
-                    android:id="@+id/forgot_button"
-                    style="@style/Widget.AppCompat.Button.Borderless"
+                    android:id="@+id/email_sign_up_button"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/action_log_in_forgot_password"
-                    android:textAllCaps="false"
-                    android:textSize="14sp" />
-
-                <Button
-                    android:id="@+id/sign_in_email_button"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
-                    android:onClick="onClickLogin"
-                    android:text="@string/sign_in"
+                    android:layout_marginTop="10dp"
+                    android:onClick="onClick"
+                    android:text="@string/sign_up"
                     android:textAllCaps="false"
                     android:textColor="@android:color/white"
                     android:background="@android:color/background_dark"
                     android:textSize="22sp"
                     android:textStyle="bold" />
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
-                    android:textSize="16sp"
-                    android:textColor="@android:color/black"
-                    android:text="Sign in with"/>
-
-                <com.google.android.gms.common.SignInButton
-                    android:id="@+id/sign_in_google_button"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    app:buttonSize="icon_only"
-                    android:layout_marginTop="5dp" />
-
             </LinearLayout>
 
             <LinearLayout
-                android:id="@+id/login_bottom"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"
@@ -121,16 +112,16 @@
                 android:orientation="vertical">
 
                 <Button
-                    android:id="@+id/signup_button"
+                    android:id="@+id/login_bottom"
                     style="@style/Widget.AppCompat.Button.Borderless"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:onClick="onClick"
-                    android:text="@string/action_log_in_signup"
+                    android:text="@string/action_sign_in_login"
                     android:textAllCaps="false"
                     android:textSize="17sp" />
 
             </LinearLayout>
         </LinearLayout>
     </ScrollView>
-</android.support.design.widget.CoordinatorLayout>
+</LinearLayout>

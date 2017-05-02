@@ -1,11 +1,17 @@
 package co.edu.udea.compumovil.authentication;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
+import android.text.TextUtils;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -37,7 +43,10 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
     private GoogleApiClient mGoogleApiClient;
     private TextView mStatusTextView;
     private TextView mDetailTextView;
+    private EditText mEmailField;
+    private EditText mPasswordField;
 
+    //private View mPasswordField;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,10 +56,12 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
         // Views
         mStatusTextView = (TextView) findViewById(R.id.status);
         mDetailTextView = (TextView) findViewById(R.id.detail);
+        mEmailField = (EditText) findViewById(R.id.field_email);
+        mPasswordField = (EditText) findViewById(R.id.field_password);
 
         // Button listeners
         //findViewById(R.id.sign_in_google_button).setOnClickListener(this);
-        findViewById(R.id.sign_in_button).setOnClickListener(this);
+        findViewById(R.id.sign_in_email_button).setOnClickListener(this);
         //findViewById(R.id.sign_out_button).setOnClickListener(this);
         //findViewById(R.id.disconnect_button).setOnClickListener(this);
 
@@ -89,21 +100,17 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
         // Check if user is signed in (non-null) and update UI accordingly.
         FirebaseUser currentUser = mAuth.getCurrentUser();
         //updateUI(currentUser);
-
-        if(currentUser != null){
-
-            startMainActivity();
-        }
+        startMainActivity(currentUser);
 
     }
     // [END on_start_check_user]
 
-    private void startMainActivity(){
+    private void startMainActivity(FirebaseUser user){
 
-        Intent intent = new Intent(this, MainActivity.class);
-        //intent.putExtra("GoogleUserName",currentUser.getDisplayName());
-        //intent.putExtra("GoogleEmail",currentUser.getEmail());
-        startActivity(intent);
+        if(user != null) {
+            Intent intent = new Intent(this, MainActivity.class);
+            startActivity(intent);
+        }
 
     }
 
@@ -120,8 +127,6 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
                 // Google Sign In was successful, authenticate with Firebase
                 GoogleSignInAccount account = result.getSignInAccount();
                 firebaseAuthWithGoogle(account);
-
-                startMainActivity();
 
                 Log.d(TAG, "Google Sign In success");
 
@@ -152,6 +157,7 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
                             // Sign in success, update UI with the signed-in user's information
                             Log.d(TAG, "signInWithCredential:success");
                             FirebaseUser user = mAuth.getCurrentUser();
+                            startMainActivity(user);
                             //updateUI(user);
                         } else {
                             // If sign in fails, display a message to the user.
@@ -176,76 +182,121 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
     }
     // [END signin]
 
-    /*
-    private void signOut() {
-        // Firebase sign out
-        mAuth.signOut();
-
-        // Google sign out
-        Auth.GoogleSignInApi.signOut(mGoogleApiClient).setResultCallback(
-                new ResultCallback<Status>() {
-                    @Override
-                    public void onResult(@NonNull Status status) {
-                        //updateUI(null);
-                    }
-                });
-    }
-
-
-    private void revokeAccess() {
-        // Firebase sign out
-        mAuth.signOut();
-
-        // Google revoke access
-        Auth.GoogleSignInApi.revokeAccess(mGoogleApiClient).setResultCallback(
-                new ResultCallback<Status>() {
-                    @Override
-                    public void onResult(@NonNull Status status) {
-                        updateUI(null);
-                    }
-                });
-    }
-
-    private void updateUI(FirebaseUser user) {
-        //hideProgressDialog();
-        if (user != null) {
-            mStatusTextView.setText(getString(R.string.google_status_fmt, user.getEmail()));
-            mDetailTextView.setText(getString(R.string.firebase_status_fmt, user.getUid()));
-
-            findViewById(R.id.sign_in_button).setVisibility(View.GONE);
-            findViewById(R.id.sign_in_google_button).setVisibility(View.GONE);
-            findViewById(R.id.sign_out_button).setVisibility(View.VISIBLE);
-        } else {
-            mStatusTextView.setText(R.string.signed_out);
-            mDetailTextView.setText(null);
-
-            findViewById(R.id.sign_in_button).setVisibility(View.VISIBLE);
-            findViewById(R.id.sign_in_google_button).setVisibility(View.VISIBLE);
-            findViewById(R.id.sign_out_button).setVisibility(View.GONE);
+    private void signIn(String email, String password) {
+        Log.d(TAG, "signIn:" + email);
+        if (!validateForm()) {
+            return;
         }
+        //showProgressDialog();
+
+        // [START sign_in_with_email]
+        mAuth.signInWithEmailAndPassword(email, password)
+                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if (task.isSuccessful()) {
+                            // Sign in success, update UI with the signed-in user's information
+                            Log.d(TAG, "signInWithEmail:success");
+                            FirebaseUser user = mAuth.getCurrentUser();
+                            startMainActivity(user);
+                            //updateUI(user);
+                        } else {
+                            // If sign in fails, display a message to the user.
+                            Log.w(TAG, "signInWithEmail:failure", task.getException() );
+                            Log.w(TAG, "signInWithEmail:failure"+ task.getException().getMessage() );
+                            //Toast.makeText(LoginActivity.this, "Authentication failed.", Toast.LENGTH_SHORT).show();
+                            //updateUI(null);
+                            sendSnackBarMessage(task.getException().getMessage());
+                        }
+
+                        // [START_EXCLUDE]
+//                        if (!task.isSuccessful()) {
+//                            //mStatusTextView.setText(R.string.auth_failed);
+//                            //TODO message auth failed
+//
+//                        }
+                        //hideProgressDialog();
+                        // [END_EXCLUDE]
+                    }
+                });
+        // [END sign_in_with_email]
     }
-*/
+
 
     @Override
     public void onConnectionFailed(@NonNull ConnectionResult connectionResult) {
         // An unresolvable error has occurred and Google APIs (including Sign-In) will not
         // be available.
         Log.d(TAG, "onConnectionFailed:" + connectionResult);
-        Toast.makeText(this, "Google Play Services error.", Toast.LENGTH_SHORT).show();
+        //Toast.makeText(this, "Google Play Services error.", Toast.LENGTH_SHORT).show();
+        sendSnackBarMessage("Google Play Services error.");
     }
 
     @Override
     public void onClick(View v) {
         int i = v.getId();
+        hideKeyBoard();
+
         if (i == R.id.sign_in_google_button) {
             Log.d(TAG, "sign_in_google_button:" );
             signIn();
-        } else if (i == R.id.sign_in_button) {
+        } else if (i == R.id.sign_in_email_button) {
             Log.d(TAG, "sign_in_button:" );
-        }/* else if (i == R.id.disconnect_button) {
-            revokeAccess();
-        }*/
+            String email = mEmailField.getText().toString();
+            String password = mPasswordField.getText().toString();
+            signIn(email,password);
+
+        } else if (i == R.id.signup_button) {
+            Log.d(TAG, "signup_button:" );
+            Intent intent = new Intent(this, RegisterActivity.class);
+            startActivity(intent);
+        }
     }
+
+    private void hideKeyBoard(){
+
+        View view = this.getCurrentFocus();
+        if (view != null) {
+            InputMethodManager imm = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
+            imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
+        }
+    }
+
+    private boolean validateForm() {
+        boolean valid = true;
+
+        String email = mEmailField.getText().toString();
+        if (TextUtils.isEmpty(email)) {
+            mEmailField.setError("Required.");
+            valid = false;
+        } else {
+            mEmailField.setError(null);
+        }
+
+        String password = mPasswordField.getText().toString();
+        if (TextUtils.isEmpty(password)) {
+            mPasswordField.setError("Required.");
+            valid = false;
+        } else {
+            mPasswordField.setError(null);
+        }
+
+        return valid;
+    }
+
+
+    public void sendSnackBarMessage(String message) {
+
+        Log.d(TAG, "sendSnackBarMessage: "+message);
+        View parentLayout = findViewById(R.id.root_view);
+
+        Snackbar snackbar = Snackbar.make(parentLayout, message, Snackbar.LENGTH_SHORT);
+        snackbar.show();
+    }
+
+
+
+
 
 }
 

@@ -34,13 +34,22 @@
     <string name="auth_failed">Authentication failed</string>
     <string name="login">Login</string>
 
-
     <string name="signed_out">Signed Out</string>
 
     <string name="google_status_fmt">Google User: %s</string>
     <string name="firebase_status_fmt">Firebase User: %s</string>
-    <string name="title_activity_login">Sign in</string>
+    <string name="title_activity_login">Authentication</string>
     <string name="help">Help me</string>
+
+    <string name="action_log_in_signup">Don\'t have an account? <b>Sign up</b></string>
+    <string name="action_sign_in_login">Already have an account? <b>Log in</b></string>
+    <string name="action_log_in_forgot_password">Forgot Password?</string>
+
+
+    <string name="prompt_user_name">User name</string>
+    <string name="sign_up">Sign up</string>
+    <string name="title_activity_main">Main Activity</string>
+    <string name="title_activity_register">Register</string>
 
 
 </resources>
