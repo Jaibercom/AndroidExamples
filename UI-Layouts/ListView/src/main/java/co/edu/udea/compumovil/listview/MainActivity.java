@@ -27,7 +27,6 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         //ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, R.layout.list_item, colors);                        //Set a custom layout
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, colors);         //Set a default layout
 
-
         // Set the adapter on this ListActivity's built-in ListView
         listView.setAdapter(adapter);
 
