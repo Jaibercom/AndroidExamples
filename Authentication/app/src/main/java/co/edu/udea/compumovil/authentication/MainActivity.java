@@ -76,25 +76,25 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
         signOut();
     }*/
 
-    private void signOut() {
-        // Firebase sign out
-        mAuth.signOut();
+        private void signOut() {
+            // Firebase sign out
+            mAuth.signOut();
 
-        // Google sign out
-        Auth.GoogleSignInApi.signOut(mGoogleApiClient).setResultCallback(
-                new ResultCallback<Status>() {
-                    @Override
-                    public void onResult(@NonNull Status status) {
-                        //updateUI(null);
-                        Log.d(TAG, "SignOut");
-                        Toast.makeText(getApplicationContext(),"Logged Out",Toast.LENGTH_SHORT).show();
+            // Google sign out
+            Auth.GoogleSignInApi.signOut(mGoogleApiClient).setResultCallback(
+                    new ResultCallback<Status>() {
+                        @Override
+                        public void onResult(@NonNull Status status) {
+                            //updateUI(null);
+                            Log.d(TAG, "SignOut");
+                            Toast.makeText(getApplicationContext(),"Logged Out",Toast.LENGTH_SHORT).show();
 
-                        finish();
-                        //Intent i=new Intent(getApplicationContext(),LoginActivity.class);
-                        //startActivity(i);
-                    }
-                });
-    }
+                            finish();
+                            //Intent i=new Intent(getApplicationContext(),LoginActivity.class);
+                            //startActivity(i);
+                        }
+                    });
+        }
 
     @Override
     public void onConnectionFailed(@NonNull ConnectionResult connectionResult) {
