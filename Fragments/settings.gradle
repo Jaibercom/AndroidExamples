@@ -1,1 +1,1 @@
-include ':Static', ':Dynamic', ':Details', ':List', ':LifeCycle', ':ControlButton', ':Communications'
+include ':Static', ':Dynamic', ':Details', ':List', ':LifeCycle', ':ControlButton', ':Communications', ':Dynamic-AddReplace'
