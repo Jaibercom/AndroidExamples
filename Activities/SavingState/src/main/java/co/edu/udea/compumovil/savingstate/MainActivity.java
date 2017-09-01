@@ -124,6 +124,8 @@ public class MainActivity extends AppCompatActivity {
         savedInstanceState.putInt(RESUME_KEY, mResume);
         savedInstanceState.putInt(RESTART_KEY, mRestart);
         savedInstanceState.putInt(START_KEY, mStart);
+
+        // Always call the superclass so it can save the view hierarchy state
         super.onSaveInstanceState(savedInstanceState);
 
     }

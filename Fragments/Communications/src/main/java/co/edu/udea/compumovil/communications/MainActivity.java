@@ -10,8 +10,8 @@ import android.view.MenuItem;
 
 public class MainActivity extends AppCompatActivity implements FragmentA.OnFragmentButtonListener {
 
-    public final String FRAGMENT_A_TAG = "tagA";
-    public final String FRAGMENT_B_TAG = "tagB";
+    public final String TAG = "MainActivity";
+    public final String FRAGMENT_B_TAG = "TagB";
     public static final String KEY_NAME = "name";
 
 
@@ -27,14 +27,13 @@ public class MainActivity extends AppCompatActivity implements FragmentA.OnFragm
         ft.add(R.id.fragment_container, fragmentA, "FA");
         ft.commit();
 
-
     }
 
 
     @Override
     public void onFragmentClickButton(String name) {
 
-        Log.d("MainActivity", "onFragmentClickButton, your name is:" + name);
+        Log.d(TAG, "onFragmentClickButton, your name is:" + name);
 
         FragmentB fragmentB = (FragmentB) getSupportFragmentManager().findFragmentByTag(FRAGMENT_B_TAG);
 
@@ -52,7 +51,6 @@ public class MainActivity extends AppCompatActivity implements FragmentA.OnFragm
         ft.replace(R.id.fragment_container, fragmentB, FRAGMENT_B_TAG);
         ft.addToBackStack(null);
         ft.commit();
-
 
     }
 }

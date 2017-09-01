@@ -19,6 +19,7 @@ import android.widget.EditText;
  */
 public class FragmentA extends Fragment implements View.OnClickListener{
 
+    public final String TAG = "FragmentA";
     private OnFragmentButtonListener mListener;
     private EditText editText;
     private FloatingActionButton sendButton;
@@ -47,7 +48,7 @@ public class FragmentA extends Fragment implements View.OnClickListener{
 
         String name = editText.getText().toString();
 
-        Log.d("floating_button", "onClick, your name is:" + name);
+        Log.d(TAG, "onClick, your name is:" + name);
 
         if(mListener != null){
             mListener.onFragmentClickButton(name);

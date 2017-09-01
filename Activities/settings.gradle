@@ -1,1 +1,1 @@
-include ':LifeCycle', ':SavingState'
+include ':LifeCycle', ':SavingState', ':CallingActivity'
