@@ -52,19 +52,19 @@ public class MainActivity extends AppCompatActivity {
         return true;
     }
 
-
-
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        int id = item.getItemId();
-        if (id == R.id.action_send) {
 
-            composeEmail();
+        switch(item.getItemId()) {
+            case R.id.action_send:
 
-        }
-        if (id == R.id.menu_exit) {
+                composeEmail();
+                break;
 
-            finish();
+            case R.id.menu_exit:
+
+                finish();
+                break;
         }
         return super.onOptionsItemSelected(item);
     }
