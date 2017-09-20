@@ -9,7 +9,7 @@ import android.widget.Toast;
 public class MyStartedService extends Service {
 
     private final String TAG = "MyStartedService";
-    private final int seconds = 1;
+    //private final int seconds = 1;
     private Counter thread;
     private int currentId;
 
@@ -46,10 +46,69 @@ public class MyStartedService extends Service {
     @Override
     public void onDestroy() {
         super.onDestroy();
-        thread.setFlag(false);
+        //thread.setFlag(false);
         Toast.makeText(this, "Service Destroyed ID:"+ currentId, Toast.LENGTH_LONG).show();
         //Log.v(TAG, "onDestroy");
         Log.v(TAG, "Service Destroyed ID:"+ currentId);
+    }
+
+
+
+
+    public class Counter extends Thread {
+
+        private int seconds;
+        private Boolean flag;
+        private int id;
+
+        public Boolean getFlag() {
+            return flag;
+        }
+
+        public void setFlag(Boolean flag) {
+            this.flag = flag;
+        }
+
+        private final String TAG = "MyStartedService";
+
+        public Counter() {
+            seconds = 5;
+            flag = true;
+        }
+
+        public Counter(int _seconds) {
+            seconds = _seconds;
+            flag = true;
+        }
+
+        public Counter(int _seconds, int _id) {
+            seconds = _seconds;
+            flag = true;
+            id = _id;
+        }
+
+        @Override
+        public void run() {
+
+            for (int i = 0; i < seconds; i++) {
+
+                if(flag) {
+                    long endTime = System.currentTimeMillis() + 1000;
+                    while (System.currentTimeMillis() < endTime) {
+                        synchronized (this) {
+                            try {
+                                wait(endTime -
+                                        System.currentTimeMillis());
+                            } catch (Exception e) {
+                            }
+                        }
+                    }
+                    Log.d(TAG, "ID: "+id + " counter: " + (i + 1));
+                }
+            }
+            Log.d(TAG, "ID: "+id + " termino" );
+            //stopSelf();
+        }
     }
 
 }

@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Services</string>
+    <string name="app_name">Started Service</string>
     <string name="start_service">Start</string>
     <string name="stop_service">Stop</string>
 </resources>

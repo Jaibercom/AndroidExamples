@@ -47,7 +47,7 @@ public class MemoryService extends Service {
                 activityManager.getMemoryInfo(memoryInfo);
                 String availMem = memoryInfo.availMem / 1048576 + "MB";
 
-                Log.d(TAG, availMem);
+                Log.d(TAG, "Memory available: "+ availMem);
 
             }
         };

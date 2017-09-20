@@ -5,6 +5,7 @@
     <color name="colorAccent">#FF4081</color>
 
     <color name="window_background">@android:color/white</color>
+    <color name="white">@android:color/white</color>
     <color name="PanelColor">#00BBD2</color>
 
     <color name="blueFlatShadow">#07A4B5</color>

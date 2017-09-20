@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/PanelColor"
+
     android:gravity="center_vertical"
     android:orientation="vertical"
     tools:context=".MainActivity">
@@ -16,7 +16,6 @@
         android:layout_gravity="center_horizontal"
         android:fontFamily="sans-serif-thin"
         android:text="Progreso"
-        android:textColor="@android:color/white"
         android:textSize="@dimen/metric_size" />
 
     <Button
@@ -24,7 +23,8 @@
         android:layout_width="@dimen/run_button_width"
         android:layout_height="@dimen/run_button_height"
         android:layout_gravity="center_horizontal"
-        android:background="@color/blueFlatShadow"
+        android:background="@color/colorPrimaryDark"
+        android:textColor="@color/white"
         android:onClick="onClickTurnIntentService"
         android:text="INICIAR INTENT SERVICE" />
 

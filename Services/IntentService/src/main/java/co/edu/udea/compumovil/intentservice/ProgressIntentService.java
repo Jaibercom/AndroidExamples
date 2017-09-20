@@ -42,12 +42,12 @@ public class ProgressIntentService extends IntentService {
                     .setContentText("Procesando...");
 
             // Bucle de simulación
-            for (int i = 1; i <= 10; i++) {
+            for (int i = 1; i <= 15; i++) {
 
                 Log.d(TAG, i + ""); // Logueo
 
                 // Poner en primer plano
-                builder.setProgress(10, i, false);
+                builder.setProgress(15, i, false);
                 startForeground(1, builder.build());
 
 
