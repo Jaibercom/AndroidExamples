@@ -34,29 +34,24 @@ public class FragmentA extends Fragment implements View.OnClickListener{
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_a, container, false);
 
-        editText = (EditText) view.findViewById(R.id.name_edit_text);
-        sendButton = (FloatingActionButton) view.findViewById(R.id.floating_button);
+        editText = view.findViewById(R.id.name_edit_text);
+        sendButton = view.findViewById(R.id.floating_button);
         sendButton.setOnClickListener(this);
 
         return view;
     }
 
-
-
     @Override
     public void onClick(View v) {
 
         String name = editText.getText().toString();
-
-        Log.d(TAG, "onClick, your name is:" + name);
+        Log.d(TAG, "onClick, your name is: " + name);
 
         if(mListener != null){
             mListener.onFragmentClickButton(name);
             editText.setText("");
         }
-
     }
-
 
     @Override
     public void onAttach(Context context) {
