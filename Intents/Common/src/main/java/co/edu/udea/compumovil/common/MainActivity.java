@@ -68,6 +68,8 @@ public class MainActivity extends AppCompatActivity {
 
         }
         if (intent != null) {
+            // TODO Verify the original intent will resolve to at least one activity
+            
             startActivity(intent);
         }
     }
