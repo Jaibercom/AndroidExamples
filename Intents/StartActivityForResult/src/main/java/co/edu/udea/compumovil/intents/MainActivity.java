@@ -10,8 +10,8 @@ import android.widget.Toast;
 public class MainActivity extends AppCompatActivity {
 
     private EditText editText;
-    public final static String EXTRA_MESSAGE = "co.edu.udea.compumovil.intents.MESSAGE";
-    public final static int REQUEST_CODE = 25;
+    public static final String EXTRA_MESSAGE = "co.edu.udea.compumovil.intents.MESSAGE";
+    public static final int REQUEST_CODE = 25;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,18 +34,18 @@ public class MainActivity extends AppCompatActivity {
         startActivityForResult(intent, REQUEST_CODE);
     }
 
-
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 
         if (resultCode == RESULT_OK && requestCode == REQUEST_CODE) {
 
             if (data.hasExtra(DisplayMessageActivity.KEY1)) {
-                Toast.makeText(this, data.getExtras().
-                                getString(DisplayMessageActivity.KEY1),
-                        Toast.LENGTH_SHORT).show();
+                Toast.makeText(
+                        this,
+                        data.getExtras().getString(DisplayMessageActivity.KEY1),
+                        Toast.LENGTH_SHORT
+                ).show();
             }
-
         }
     }
 

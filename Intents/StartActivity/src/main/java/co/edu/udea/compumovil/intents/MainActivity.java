@@ -9,7 +9,7 @@ import android.widget.EditText;
 public class MainActivity extends AppCompatActivity {
 
     private EditText editText;
-    public final static String EXTRA_MESSAGE = "co.edu.udea.compumovil.intents.MESSAGE";
+    public static final String EXTRA_MESSAGE = "co.edu.udea.compumovil.intents.MESSAGE";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -17,7 +17,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         editText = (EditText) findViewById(R.id.edit_message);
-
     }
 
     /**
@@ -30,5 +29,4 @@ public class MainActivity extends AppCompatActivity {
         intent.putExtra(EXTRA_MESSAGE, msg);
         startActivity(intent);
     }
-
 }

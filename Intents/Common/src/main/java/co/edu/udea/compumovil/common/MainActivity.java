@@ -19,7 +19,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        spinner = (Spinner) findViewById(R.id.spinner);
+        spinner = findViewById(R.id.spinner);
         ArrayAdapter adapter = ArrayAdapter.createFromResource(this,
                 R.array.intents, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -64,6 +64,8 @@ public class MainActivity extends AppCompatActivity {
                         Uri.parse("content://contacts/people/1"));
                 break;
 
+                default:
+
         }
         if (intent != null) {
             startActivity(intent);
@@ -74,9 +76,7 @@ public class MainActivity extends AppCompatActivity {
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (resultCode == Activity.RESULT_OK && requestCode == 0) {
             String result = data.toURI();
-            Toast.makeText(this, result, Toast.LENGTH_LONG);
+            Toast.makeText(this, result, Toast.LENGTH_LONG).show();
         }
     }
-
-
 }
