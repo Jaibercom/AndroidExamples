@@ -18,38 +18,38 @@ public class MainActivity extends AppCompatActivity implements CompoundButton.On
     private BroadcastReceiver mSMSReceiver;
     private IntentFilter intentFilter;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        requestSMSPermission();
+
+        ((Switch)findViewById(R.id.enable_switch)).setOnCheckedChangeListener(this);
+
         //Registrando el Broadcast Receiver
         mSMSReceiver = new SMSReceiver();
         intentFilter = new IntentFilter();
         intentFilter.addAction("android.provider.Telephony.SMS_RECEIVED");
-        this.registerReceiver(mSMSReceiver, intentFilter);
-
+//        this.registerReceiver(mSMSReceiver, intentFilter);
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        this.unregisterReceiver(mSMSReceiver);
+//        this.unregisterReceiver(mSMSReceiver);
     }
 
     @Override
     public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
         if(isChecked){
-            getApplication().registerReceiver(mSMSReceiver, intentFilter);
+            this.registerReceiver(mSMSReceiver, intentFilter);
             Log.d(TAG, " Filter SMS_RECEIVED has been added");
         } else {
-            getApplication().unregisterReceiver(mSMSReceiver);
+            this.unregisterReceiver(mSMSReceiver);
             Log.d(TAG, " Filter SMS_RECEIVED has been removed");
         }
     }
-
-
 
     //Adiccionando permisos en tiempo de ejecución
     private void requestSMSPermission() {
@@ -61,6 +61,4 @@ public class MainActivity extends AppCompatActivity implements CompoundButton.On
             ActivityCompat.requestPermissions(this, permission_list, 1);
         }
     }
-
-
 }

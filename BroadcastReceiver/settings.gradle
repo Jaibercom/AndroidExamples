@@ -1,1 +1,1 @@
-include ':SMS-Context', ':SendBroadcast', ':SendLocalBroadcast', ':Alarm', ':SMS-Manifest', ':Boot'
+include ':SMS-Dynamic', ':SendBroadcast', ':SendLocalBroadcast', ':Alarm', ':SMS-Static', ':Boot'

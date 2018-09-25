@@ -3,9 +3,9 @@
     package="co.edu.udea.compumovil.sms_manifest">
 
     <!-- Permissions needed to receive sms -->
-    <uses-permission android:name="android.permission.RECEIVE_SMS"></uses-permission>
+    <uses-permission android:name="android.permission.RECEIVE_SMS"/>
     <!-- Permissions needed to read sms inbox -->
-    <uses-permission android:name="android.permission.READ_SMS" />
+    <uses-permission android:name="android.permission.READ_SMS"/>
 
     <application
         android:allowBackup="true"
@@ -27,10 +27,9 @@
             android:enabled="true"
             android:exported="true">
             <intent-filter>
-                <action android:name="android.provider.Telephony.SMS_RECEIVED"></action>
+                <action android:name="android.provider.Telephony.SMS_RECEIVED"/>
             </intent-filter>
         </receiver>
 
     </application>
-
 </manifest>

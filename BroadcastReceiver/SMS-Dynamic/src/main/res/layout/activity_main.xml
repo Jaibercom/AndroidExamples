@@ -10,8 +10,8 @@
     tools:context="co.edu.udea.compumovil.sms_context.MainActivity">
 
     <Switch
-        android:id="@+id/startSwitch"
-        android:text="Receiver Enable"
+        android:id="@+id/enable_switch"
+        android:text="@string/receiver_enable"
         android:layout_margin="32dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
