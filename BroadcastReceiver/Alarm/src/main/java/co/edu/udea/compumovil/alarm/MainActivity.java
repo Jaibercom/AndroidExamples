@@ -33,6 +33,5 @@ public class MainActivity extends AppCompatActivity {
         alarmManager.set(AlarmManager.RTC_WAKEUP, System.currentTimeMillis() + (num * 1000), pendingIntent);
 
         Toast.makeText(this, "Alarm set in " + num + " seconds", Toast.LENGTH_LONG).show();
-
     }
 }
