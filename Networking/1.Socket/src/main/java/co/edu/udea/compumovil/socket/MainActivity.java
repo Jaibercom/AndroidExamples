@@ -1,5 +1,6 @@
 package co.edu.udea.compumovil.socket;
 
+import android.app.ProgressDialog;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -21,6 +22,7 @@ public class MainActivity extends AppCompatActivity {
 
     private static final String TAG = "TAG-HttpGet";
     private TextView mTextView;
+    private ProgressDialog dialog;
     private static final String HOST = "api.geonames.org";
     private static final String HTTP_GET_COMMAND = "GET /earthquakesJSON?north=20&south=-20&east=-60&west=-80&username=aporter"
             + " HTTP/1.1"
@@ -35,7 +37,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        mTextView = findViewById(R.id.textView1);
+        mTextView = findViewById(R.id.textView);
+        dialog = new ProgressDialog(this);
     }
 
     public void onClick(View v) {
@@ -43,6 +46,13 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private class HttpGetTask extends AsyncTask<Void, Void, String> {
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+            dialog.setMessage("Please wait..");
+            dialog.show();
+        }
 
         @Override
         protected String doInBackground(Void... params) {
@@ -68,6 +78,7 @@ public class MainActivity extends AppCompatActivity {
         protected void onPostExecute(String result) {
             mTextView.setText(result);
             Log.d(TAG, "Result: " + result);
+            dialog.dismiss();
         }
 
         private String readStream(InputStream in) {
