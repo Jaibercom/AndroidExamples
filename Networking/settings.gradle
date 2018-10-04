@@ -1,1 +1,1 @@
-include ':1.Socket', ':2.HttpURLConnection', ':3.JSONParser', ':4.Volley', ':5.VolleyGSONParser'
+include ':1.Socket', ':2.HttpURLConnection', ':3.JSONParser', ':4.Volley', ':5.VolleyGSONParser', ':6.Retrofit'

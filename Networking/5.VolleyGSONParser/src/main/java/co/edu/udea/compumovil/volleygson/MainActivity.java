@@ -31,8 +31,8 @@ public class MainActivity extends AppCompatActivity {
     private ProgressDialog dialog;
 
     private static final String HOST = "http://api.geonames.org/";
+    private static final String REQUEST = "earthquakesJSON";
     private static final String PARAMS = "?north=20&south=-20&east=-60&west=-80&username=aporter";
-    private static final String REQUEST = "/earthquakesJSON";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
