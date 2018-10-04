@@ -14,9 +14,6 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.google.gson.Gson;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParser;
 
 import org.json.JSONObject;
 
@@ -62,7 +59,7 @@ public class MainActivity extends AppCompatActivity {
                             @Override
                             public void onResponse(JSONObject response) {
                                 dialog.dismiss();
-                                parserData(response.toString());
+                                parserData(String.valueOf(response));
                             }
                         },
                         new Response.ErrorListener() {
@@ -78,16 +75,12 @@ public class MainActivity extends AppCompatActivity {
 
     private void parserData(String data) {
 
-        JsonParser jsonParser = new JsonParser();
-        JsonObject jo = (JsonObject) jsonParser.parse(data);
-        JsonArray jsonArr = jo.getAsJsonArray("earthquakes");
-
         Gson gson = new Gson();
-        EarthQuake[] earthQuakes = gson.fromJson(jsonArr, EarthQuake[].class);
+        Earthquakes earthQuakes = gson.fromJson(data, Earthquakes.class);
 
         if (earthQuakes != null) {
 
-            for (EarthQuake earthQuake : earthQuakes) {
+            for (Earthquake earthQuake : earthQuakes.getEarthquakes()) {
                 Log.d(TAG, "*earthQuakes: " + earthQuake.getMagnitude());
                 result.add("Magnitude: " + earthQuake.getMagnitude()
                         + ", Lat :" + earthQuake.getLat()

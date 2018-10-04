@@ -3,24 +3,30 @@ package co.edu.udea.compumovil.volleygson;
 /**
  * EarthQuake Model
  */
-public class EarthQuake {
+import com.google.gson.annotations.SerializedName;
+
+public class Earthquake {
+
+    @SerializedName("datetime")
     private String datetime;
-    private int depth;
-    private String eqid;
-    private float lat;
-    private float lng;
-    private float magnitude;
+
+    @SerializedName("depth")
+    private Double depth;
+
+    @SerializedName("lng")
+    private Double lng;
+
+    @SerializedName("src")
     private String src;
 
-    public EarthQuake(String dateTime, int depth, String eqid, float lat, float lng, float magnitude, String src) {
-        datetime = dateTime;
-        this.depth = depth;
-        this.eqid = eqid;
-        this.lat = lat;
-        this.lng = lng;
-        this.magnitude = magnitude;
-        this.src = src;
-    }
+    @SerializedName("eqid")
+    private String eqid;
+
+    @SerializedName("magnitude")
+    private Double magnitude;
+
+    @SerializedName("lat")
+    private Double lat;
 
     public String getDatetime() {
         return datetime;
@@ -30,12 +36,28 @@ public class EarthQuake {
         this.datetime = datetime;
     }
 
-    public int getDepth() {
+    public Double getDepth() {
         return depth;
     }
 
-    public void setDepth(int depth) {
+    public void setDepth(Double depth) {
         this.depth = depth;
+    }
+
+    public Double getLng() {
+        return lng;
+    }
+
+    public void setLng(Double lng) {
+        this.lng = lng;
+    }
+
+    public String getSrc() {
+        return src;
+    }
+
+    public void setSrc(String src) {
+        this.src = src;
     }
 
     public String getEqid() {
@@ -46,35 +68,20 @@ public class EarthQuake {
         this.eqid = eqid;
     }
 
-    public float getLat() {
-        return lat;
-    }
-
-    public void setLat(float lat) {
-        this.lat = lat;
-    }
-
-    public float getLng() {
-        return lng;
-    }
-
-    public void setLng(float lng) {
-        this.lng = lng;
-    }
-
-    public float getMagnitude() {
+    public Double getMagnitude() {
         return magnitude;
     }
 
-    public void setMagnitude(float magnitude) {
+    public void setMagnitude(Double magnitude) {
         this.magnitude = magnitude;
     }
 
-    public String getSrc() {
-        return src;
+    public Double getLat() {
+        return lat;
     }
 
-    public void setSrc(String src) {
-        this.src = src;
+    public void setLat(Double lat) {
+        this.lat = lat;
     }
+
 }

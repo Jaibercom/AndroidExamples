@@ -1,13 +1,11 @@
-package co.edu.udea.compumovil.retrofit;
+package co.edu.udea.compumovil.volleygson;
 
 import java.util.List;
-import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 public class Earthquakes {
 
     @SerializedName("earthquakes")
-    @Expose
     private List<Earthquake> earthquakes = null;
 
     public List<Earthquake> getEarthquakes() {
