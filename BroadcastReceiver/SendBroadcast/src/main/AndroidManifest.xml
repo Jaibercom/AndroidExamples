@@ -22,7 +22,7 @@
         <receiver
             android:name="co.edu.udea.compumovil.sendlocalbroadcast.MyReceiver"
             android:enabled="true"
-            android:exported="false">
+            android:exported="true">
             <intent-filter>
                 <action android:name="co.edu.udea.compumovil.custombroadcast.action.CUSTOM" />
             </intent-filter>

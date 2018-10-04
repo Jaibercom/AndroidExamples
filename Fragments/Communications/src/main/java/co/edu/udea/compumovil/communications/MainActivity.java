@@ -33,7 +33,6 @@ public class MainActivity extends AppCompatActivity implements FragmentA.OnFragm
         Log.d(TAG, "onFragmentClickButton, your name is:" + name);
 
         FragmentB fragmentB = (FragmentB) getSupportFragmentManager().findFragmentByTag(FRAGMENT_B_TAG);
-        FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
 
         if (fragmentB == null) {
             Log.d(TAG, "Crear Fragment B");
@@ -42,6 +41,7 @@ public class MainActivity extends AppCompatActivity implements FragmentA.OnFragm
             fragmentB.setName(name);
         }
 
+        FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
         ft.replace(R.id.fragment_container, fragmentB, FRAGMENT_B_TAG);
         ft.addToBackStack(null);
         ft.commit();

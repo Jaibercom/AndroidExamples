@@ -1,13 +1,11 @@
 package co.edu.udea.compumovil.details;
 
-
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-
 
 /**
  * A simple {@link Fragment} subclass.
@@ -18,7 +16,7 @@ public class ArticleFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+            Bundle savedInstanceState) {
 
         // If activity recreated (such as from screen rotate), restore
         // the previous article selection set by onSaveInstanceState().
@@ -50,7 +48,7 @@ public class ArticleFragment extends Fragment {
     }
 
     public void updateArticleView(int position) {
-        TextView article = (TextView) getActivity().findViewById(R.id.article);
+        TextView article = getActivity().findViewById(R.id.article);
         article.setText(Ipsum.Articles[position]);
         mCurrentPosition = position;
     }
