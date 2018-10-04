@@ -9,7 +9,7 @@ import retrofit2.http.Query;
 interface ApiService {
 
     @GET("/earthquakesJSON")
-    Call<ArrayList<EarthQuake>> getEarthquakes(
+    Call<Earthquakes> getEarthquakes(
             @Query("north") String north,
             @Query("south") String south,
             @Query("east") String east,
