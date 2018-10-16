@@ -1,27 +1,35 @@
 {
   "project_info": {
-    "project_number": "771583446800",
-    "firebase_url": "https://messaging20171.firebaseio.com",
-    "project_id": "messaging20171",
-    "storage_bucket": "messaging20171.appspot.com"
+    "project_number": "330615165831",
+    "firebase_url": "https://fcm-messaging-6d37a.firebaseio.com",
+    "project_id": "fcm-messaging-6d37a",
+    "storage_bucket": "fcm-messaging-6d37a.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:771583446800:android:d092f710a81c36c3",
+        "mobilesdk_app_id": "1:330615165831:android:d092f710a81c36c3",
         "android_client_info": {
           "package_name": "co.edu.udea.compumovil.fcm"
         }
       },
       "oauth_client": [
         {
-          "client_id": "771583446800-7cd7sqd35fkobhaaokcm1v753dq92jh3.apps.googleusercontent.com",
+          "client_id": "330615165831-933i6etar0km9tarrf33jljodvcfip18.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "co.edu.udea.compumovil.fcm",
+            "certificate_hash": "db6f48dded77390663c032b38301ca790369b445"
+          }
+        },
+        {
+          "client_id": "330615165831-4rsc9btvu1tcu644hdonrfetdemtt6j8.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyBAL-5kU5XLUhtZhIoUiSocyGbIhDK0Br4"
+          "current_key": "AIzaSyDH6plhrq2y_i1yNTiMuanIFttTF8-h7sU"
         }
       ],
       "services": {
@@ -29,8 +37,13 @@
           "status": 1
         },
         "appinvite_service": {
-          "status": 1,
-          "other_platform_oauth_client": []
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "330615165831-4rsc9btvu1tcu644hdonrfetdemtt6j8.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         },
         "ads_service": {
           "status": 2
