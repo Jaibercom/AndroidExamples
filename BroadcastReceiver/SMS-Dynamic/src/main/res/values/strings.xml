@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">SMS-Dynamic</string>
+    <string name="receiver_enable">Receiver Enable</string>
+</resources>

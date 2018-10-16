@@ -10,10 +10,8 @@ import android.view.MenuItem;
 
 public class MainActivity extends AppCompatActivity implements FragmentA.OnFragmentButtonListener {
 
-    public final String TAG = "MainActivity";
-    public final String FRAGMENT_B_TAG = "TagB";
-    public static final String KEY_NAME = "name";
-
+    public static final String TAG = "MainActivity";
+    public static final String FRAGMENT_B_TAG = "TagB";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,7 +24,6 @@ public class MainActivity extends AppCompatActivity implements FragmentA.OnFragm
         FragmentTransaction ft = fm.beginTransaction();
         ft.add(R.id.fragment_container, fragmentA, "FA");
         ft.commit();
-
     }
 
 
@@ -38,19 +35,15 @@ public class MainActivity extends AppCompatActivity implements FragmentA.OnFragm
         FragmentB fragmentB = (FragmentB) getSupportFragmentManager().findFragmentByTag(FRAGMENT_B_TAG);
 
         if (fragmentB == null) {
-            Log.d("MainActivity", "Crear Fragment B");
-            fragmentB = new FragmentB();
+            Log.d(TAG, "Crear Fragment B");
+            fragmentB = FragmentB.newInstance(name);
+        }else {
+            fragmentB.setName(name);
         }
 
-        Bundle bundle = new Bundle();
-        bundle.putString(KEY_NAME, name);
-        fragmentB.setArguments(bundle);
-
-        FragmentManager fm = getSupportFragmentManager();
-        FragmentTransaction ft = fm.beginTransaction();
+        FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
         ft.replace(R.id.fragment_container, fragmentB, FRAGMENT_B_TAG);
         ft.addToBackStack(null);
         ft.commit();
-
     }
 }

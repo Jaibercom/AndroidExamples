@@ -48,7 +48,6 @@ public class MainActivity extends AppCompatActivity {
                 throw new RuntimeException(e);
             }
         }
-
         return true;
     }
 
@@ -57,12 +56,10 @@ public class MainActivity extends AppCompatActivity {
 
         switch(item.getItemId()) {
             case R.id.action_send:
-
                 composeEmail();
                 break;
 
             case R.id.menu_exit:
-
                 finish();
                 break;
         }
@@ -87,6 +84,5 @@ public class MainActivity extends AppCompatActivity {
             Log.d(TAG, "No activity was found that matched with the intent-filter");
             Toast.makeText(this, "No activity was found that matched with the intent-filter", Toast.LENGTH_SHORT).show();
         }
-
     }
 }

@@ -18,7 +18,6 @@ public class MainActivity extends AppCompatActivity implements HeadlinesFragment
             FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
             transaction.add(R.id.fragment_container, headlinesFragment);
             transaction.commit();
-
         }
 
     }

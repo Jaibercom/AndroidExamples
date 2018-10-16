@@ -53,3 +53,7 @@ gen-external-apklibs
 *.ipr
 *~
 *.swp
+Fragments/Details/gradlew.bat
+Fragments/Details/gradlew
+Fragments/Details/gradle/wrapper/gradle-wrapper.properties
+Fragments/Details/gradle/wrapper/gradle-wrapper.jar

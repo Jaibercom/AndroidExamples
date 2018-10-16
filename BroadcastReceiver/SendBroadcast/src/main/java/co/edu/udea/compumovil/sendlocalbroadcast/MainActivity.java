@@ -3,11 +3,14 @@ package co.edu.udea.compumovil.sendlocalbroadcast;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 
 public class MainActivity extends AppCompatActivity {
 
     private static final String ACTION_CUSTOM = "co.edu.udea.compumovil.custombroadcast.action.CUSTOM";
+    private final String TAG = "MainActivity";
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,5 +23,6 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent();
         intent.setAction(ACTION_CUSTOM);
         sendBroadcast(intent);
+        Log.d(TAG, "sendBroadcast: "+ ACTION_CUSTOM);
     }
 }

@@ -7,6 +7,7 @@ import android.os.Vibrator;
 import android.widget.Toast;
 
 public class MyReceiver extends BroadcastReceiver {
+
     public MyReceiver() {
     }
 

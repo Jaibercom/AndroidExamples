@@ -33,5 +33,4 @@ public class DisplayMessageActivity extends AppCompatActivity {
         setResult(RESULT_OK, data);
         super.finish();
     }
-
 }
