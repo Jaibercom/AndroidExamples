@@ -15,12 +15,15 @@
  */
 package com.google.firebase.codelab.friendlychat;
 
+import android.Manifest;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.annotation.NonNull;
+import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
@@ -107,6 +110,8 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
     private DatabaseReference mFirebaseDatabaseReference;
     private FirebaseRecyclerAdapter<FriendlyMessage, MessageViewHolder> mFirebaseAdapter;
 
+    private static final int MY_PERMISSIONS_REQUEST_READ_EXTERNAL_STORAGE = 1;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -153,24 +158,8 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
                         )
                 )
         });
-        mMessageEditText.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-            }
 
-            @Override
-            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-                if (charSequence.toString().trim().length() > 0) {
-                    mSendButton.setEnabled(true);
-                } else {
-                    mSendButton.setEnabled(false);
-                }
-            }
-
-            @Override
-            public void afterTextChanged(Editable editable) {
-            }
-        });
+        mMessageEditText.addTextChangedListener(textChangedListener);
 
         mSendButton = findViewById(R.id.sendButton);
         mSendButton.setOnClickListener(new View.OnClickListener() {
@@ -199,7 +188,28 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
                 startActivityForResult(intent, REQUEST_IMAGE);
             }
         });
+
+     //   requestRead();
     }
+
+    private TextWatcher textChangedListener = new TextWatcher() {
+        @Override
+        public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+        }
+
+        @Override
+        public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+            if (charSequence.toString().trim().length() > 0) {
+                mSendButton.setEnabled(true);
+            } else {
+                mSendButton.setEnabled(false);
+            }
+        }
+
+        @Override
+        public void afterTextChanged(Editable editable) {
+        }
+    };
 
     private void getNewChildEntries() {
         // New child entries
@@ -416,4 +426,46 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
         Log.d(TAG, "onConnectionFailed:" + connectionResult);
         Toast.makeText(this, "Google Play Services error.", Toast.LENGTH_SHORT).show();
     }
+
+
+    /**
+     * requestPermissions and do something
+     *
+     */
+    public void requestRead() {
+        if (ContextCompat.checkSelfPermission(this,
+                Manifest.permission.READ_EXTERNAL_STORAGE)
+                != PackageManager.PERMISSION_GRANTED) {
+
+            ActivityCompat.requestPermissions(this,
+                    new String[]{Manifest.permission.READ_EXTERNAL_STORAGE},
+                    MY_PERMISSIONS_REQUEST_READ_EXTERNAL_STORAGE);
+        } else {
+           // readFile();
+        }
+    }
+
+    /**
+     * onRequestPermissionsResult
+     *
+     * @param requestCode
+     * @param permissions
+     * @param grantResults
+     */
+    @Override
+    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
+
+        if (requestCode == MY_PERMISSIONS_REQUEST_READ_EXTERNAL_STORAGE) {
+            if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+              //  readFile();
+                Toast.makeText(this, "Permission Granted", Toast.LENGTH_SHORT).show();
+            } else {
+                // Permission Denied
+                Toast.makeText(this, "Permission Denied", Toast.LENGTH_SHORT).show();
+            }
+            return;
+        }
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+    }
+
 }
